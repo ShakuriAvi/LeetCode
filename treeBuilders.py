@@ -29,11 +29,15 @@ def from_lst_to_binary_tree(lst: list):
 
 def __insert_node(side: str, root: BinaryTree, lst: list) -> Any:
     if len(lst) > 0 and root.val is not None:
-        new_root = BinaryTree(lst.pop(0))
-        if side == "left":
-            root.left = new_root
+        if lst[0] is not None:
+            new_root = BinaryTree(lst.pop(0))
+            if side == "left":
+                root.left = new_root
+            else:
+                root.right = new_root
+
         else:
-            root.right = new_root
+            new_root = lst.pop(0)
 
         return new_root
 
